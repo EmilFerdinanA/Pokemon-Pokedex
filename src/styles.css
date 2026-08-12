@@ -1,3 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'tailwindcss';
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: #000;
+  color: #f1f1f1;
+}
+
+@theme {
+  --animate-pokeball: bounce 0.8s linear infinite alternate;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-10px);
+  }
+}
