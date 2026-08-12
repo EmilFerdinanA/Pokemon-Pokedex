@@ -1,0 +1,54 @@
+@if (pokemon(); as pokemon) {
+  <div
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
+    (click)="close.emit()"
+  >
+    <div
+      class="relative w-full max-w-lg rounded-2xl bg-linear-to-t from-[#2c2b2e] to-[#16141b] p-6 text-white"
+      (click)="$event.stopPropagation()"
+    >
+      <button
+        type="button"
+        class="absolute right-4 top-4 text-xl text-gray-400 hover:text-white"
+        (click)="close.emit()"
+      >
+        ✕
+      </button>
+
+      <!-- Pokemon -->
+      <div class="text-center">
+        <img
+          class="mx-auto h-48"
+          [src]="pokemon.sprites.other['official-artwork'].front_default"
+          [alt]="pokemon.name"
+        />
+
+        <p class="text-sm text-gray-400">#{{ pokemon.id.toString().padStart(3, '0') }}</p>
+
+        <h2 class="mt-1 text-3xl font-bold capitalize">
+          {{ pokemon.name }}
+        </h2>
+
+        <div class="mt-3 flex justify-center gap-2">
+          @for (type of pokemon.types; track type.slot) {
+            <span class="rounded-full bg-gray-700 px-3 py-1 text-sm capitalize">
+              {{ type.type.name }}
+            </span>
+          }
+        </div>
+
+        <div class="mt-6">
+          <h3 class="mb-2 text-left font-semibold">Abilities</h3>
+
+          <div class="flex gap-2">
+            @for (ability of abilities; track ability) {
+              <span class="rounded-md bg-gray-800 px-3 py-2 text-sm">
+                {{ ability }}
+              </span>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+}

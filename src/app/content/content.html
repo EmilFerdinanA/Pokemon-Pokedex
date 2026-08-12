@@ -1,6 +1,10 @@
+@if (selectedPokemon(); as pokemon) {
+  <app-modal [pokemon]="pokemon" (close)="closeModal()" />
+}
+
 <div class="grid grid-cols-5 gap-4">
   @for (pokemon of pokemonsSlice(); track pokemon.id) {
-    <app-card [pokemon]="pokemon" />
+    <app-card [pokemon]="pokemon" (pokemonClick)="openModal(pokemon)" />
   }
 </div>
 

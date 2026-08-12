@@ -2,11 +2,14 @@ import { Component, input, output } from '@angular/core';
 import { Pokemon } from '../pokemon.model';
 
 @Component({
-  selector: 'app-card',
+  selector: 'app-modal',
   imports: [],
-  templateUrl: './card.html',
+  templateUrl: './modal.html',
 })
-export class Card {
+export class Modal {
   pokemon = input<Pokemon | null>(null);
-  pokemonClick = output<void>();
+
+  close = output<void>();
+
+  abilities = ['abilities1', 'abilities2'];
 }
