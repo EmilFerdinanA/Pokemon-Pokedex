@@ -1,0 +1,30 @@
+<div class="flex items-center justify-center gap-2">
+  <button
+    type="button"
+    class="rounded-md px-3 py-2 text-sm transition bg-gray-800 hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-40 cursor-pointer"
+    [disabled]="currentPage() === 1"
+    (click)="previous()"
+  >
+    Prev
+  </button>
+
+  @for (page of pages(); track page) {
+    <button
+      type="button"
+      class="w-9 rounded-md px-3 py-2 text-sm cursor-pointer bg-gray-800 transition-colors hover:bg-gray-700 disabled:cursor-default disabled:bg-blue-500 disabled:hover:bg-blue-500"
+      [disabled]="page === currentPage()"
+      (click)="goToPage(page)"
+    >
+      {{ page }}
+    </button>
+  }
+
+  <button
+    type="button"
+    class="rounded-md px-3 py-2 text-sm transition bg-gray-800 hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-40 cursor-pointer"
+    [disabled]="currentPage() === totalPages()"
+    (click)="next()"
+  >
+    Next
+  </button>
+</div>
