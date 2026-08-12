@@ -13,6 +13,11 @@ export class Content implements OnInit {
   private pokemonService = inject(PokemonService);
 
   pokemons = signal<Pokemon[]>([]);
+  pokemonsSlice = computed(() => {
+    const startIndex = (this.currentPage() - 1) * this.pageSize();
+    const endIndex = startIndex + this.pageSize();
+    return this.pokemons().slice(startIndex, endIndex);
+  });
 
   currentPage = signal(1);
   pageSize = signal(10);

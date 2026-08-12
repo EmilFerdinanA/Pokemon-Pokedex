@@ -1,5 +1,5 @@
 <div class="grid grid-cols-5 gap-4">
-  @for (pokemon of pokemons(); track $index) {
+  @for (pokemon of pokemonsSlice(); track pokemon.id) {
     <app-card [pokemon]="pokemon" />
   }
 </div>
