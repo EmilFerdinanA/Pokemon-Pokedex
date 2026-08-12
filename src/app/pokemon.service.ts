@@ -15,8 +15,4 @@ export class PokemonService {
       }),
     );
   }
-
-  getPokemonMoves(id: number) {
-    return this.http.get<any>(`https://pokeapi.co/api/v2/move/${id}`);
-  }
 }
