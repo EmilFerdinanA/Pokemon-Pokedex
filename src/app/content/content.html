@@ -1,0 +1,5 @@
+<div class="grid grid-cols-5 gap-4">
+  @for (pokemon of pokemons(); track $index) {
+    <app-card [pokemon]="pokemon" />
+  }
+</div>

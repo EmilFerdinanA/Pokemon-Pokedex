@@ -1,0 +1,18 @@
+<div
+  class="flex flex-col items-center justify-center border-2 rounded-[10px] m-[0.8rem] p-[1.4rem] text-center relative bg-linear-to-b from-[#2b2a2a] to-[#1b1b1b]"
+>
+  <div class="text-white">#{{ pokemon()?.id?.toString()?.padStart(3, '0') }}</div>
+  <div>
+    <img
+      [src]="pokemon()?.sprites?.other?.dream_world?.front_default"
+      alt="{{ pokemon()?.name }}"
+      class="w-[85%] h-[85%]"
+    />
+  </div>
+  <div class="text-white">{{ pokemon()?.name }}</div>
+  <div class="text-white">{{ pokemon()?.weight }} kg</div>
+  <div class="text-white">{{ pokemon()?.height }} m</div>
+  @for (type of pokemon()?.types; track type.slot; let last = $last) {
+    <span> {{ type.type.name }}{{ !last ? ' / ' : '' }} </span>
+  }
+</div>
