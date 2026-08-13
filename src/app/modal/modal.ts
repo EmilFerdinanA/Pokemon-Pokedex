@@ -10,6 +10,4 @@ export class Modal {
   pokemon = input<Pokemon | null>(null);
 
   close = output<void>();
-
-  abilities = ['abilities1', 'abilities2'];
 }
